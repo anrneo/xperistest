@@ -29,6 +29,7 @@
           <th>Fecha</th>
           <th>Hora</th>
           <th>Tipo</th>
+          <th></th>
       </tr>
     </thead>
   
@@ -39,6 +40,7 @@
         <td>{{tipo[0].form.fecha}}</td>
         <td>{{tipo[0].form.hora}}</td>
         <td>{{tipo[0].form.tipo}}</td>
+        <td>  <a (click)="deleteUser(tipo[0].id)"><i class="material-icons">delete</i></a> </td>
         
       </tr>
      

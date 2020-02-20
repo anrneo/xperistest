@@ -13,7 +13,7 @@ export class ConsultaComponent implements OnInit {
   isSelect = false
   preload = false
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService 
   ) { }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class ConsultaComponent implements OnInit {
     this.preload = true
     this.apiService.getXperia(fecha)
     .subscribe(dat=>{
-      this.preload = false
+      this.preload = false 
       if (dat.length>0) { 
         for (const key in dat) {
           var data = this.dataUser.filter(x=>x.id == dat[key].user_id)
@@ -44,6 +44,15 @@ export class ConsultaComponent implements OnInit {
       
     })
     
+  }
+
+  deleteUser(id){
+    this.apiService.deleteUser(id)
+    .subscribe(dat=>{
+      this.dataTipo = []
+      console.log(dat);
+      
+    })
   }
 
 }

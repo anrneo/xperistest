@@ -43,7 +43,6 @@ export class EntrevistaComponent implements OnInit {
   getUsers(){
     this.apiService.getUsers()
     .subscribe(dat =>{  
-      console.log(dat);
       
       this.id = this.route.snapshot.paramMap.get('id');
      
