@@ -1,0 +1,51 @@
+<div class="container" style="width: 40%;">
+  <br>
+  <br>
+<form (ngSubmit)="onSubmit(selectTech)" #loginForm="ngForm">
+<div class="input-field col s12 m12">
+    <select class="icons"  id="selectTech" class="validate" required
+    [(ngModel)]="selectTech" name="selectTech">
+      <option value="" disabled selected>Seleccione...</option>
+      <option  value="0" data-icon="assets/net.svg">Microsoft .Net</option>
+      <option  value="1" data-icon="assets/java.png">Oracle Java</option>
+     
+    </select>
+    <label>Seleccione una tecnología</label>
+  </div>
+  <br>
+  <button  style="float: right;" type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Ver</button>
+</form>
+
+<br>
+<br>
+<br>
+<div *ngIf="isSelect">
+<table class="highlight" >
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Tecnología</th>
+        <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let tipo of dataTipo; let i=index">
+      <td>{{i + 1}}</td>
+      <td>{{tipo}}</td>
+      <td><p>
+        <label>
+          <input type="checkbox"  (change)="isvaluechecked(i+1,$event)"/>
+          <span></span>
+        </label>
+      </p> </td>
+    </tr>
+   
+  </tbody>
+</table>
+<br>
+<button style="float: right;"  class="btn btn-success" (click)="getUsers()" [disabled]="!isChecked">Consultar</button> 
+
+</div>
+
+</div>

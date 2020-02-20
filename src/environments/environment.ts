@@ -3,7 +3,24 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  xperia:{
+    0:{id:1,net:'Asp.Net', java:'Java Server Pages'},
+    1:{id:2,net:'MVVM', java:'Java Server Faces'},
+    2:{id:3,net:'Ado.Net', java:'Enterprise Java Beans'},
+    3:{id:4,net:'Entity FrameWork', java:'Java Persistence Api'},
+    4:{id:5,net:'LinQ', java:'Java Messaging Services'}
+  },
+  hora:[
+   '8:00 AM',
+    '9:00 AM',
+    '10:00 AM',
+    '11:00 AM',
+    '2:00 PM',
+     '3:00 PM',
+    '4:00 PM',
+    '5:00 PM'
+  ]
 };
 
 /*

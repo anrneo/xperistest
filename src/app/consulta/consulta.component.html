@@ -1,0 +1,51 @@
+<div class="container" style="width: 40%;">
+    <br>
+    <br>
+  <form (ngSubmit)="onSubmit(selectTech)" #loginForm="ngForm">
+  <div class="input-field col s12 m12">
+      <span>selecciona la fecha a consultar:</span>
+      <input  id="selectTech" class="validate" required type="date"
+      [(ngModel)]="selectTech" name="selectTech">
+       
+     
+     
+    </div>
+    <br>
+    <div class="progress" *ngIf="preload">
+        <div class="indeterminate"></div>
+      </div>
+    <button *ngIf="!preload" style="float: right;" type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Consultar</button>
+  </form>
+  
+  <br>
+  <br>
+  <br>
+  <div *ngIf="isSelect">
+  <table class="highlight" >
+    <thead>
+      <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Tipo</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let tipo of dataTipo; let i=index">
+        <td>{{tipo[0].id}}</td>
+        <td>{{tipo[0].name}}</td>
+        <td>{{tipo[0].form.fecha}}</td>
+        <td>{{tipo[0].form.hora}}</td>
+        <td>{{tipo[0].form.tipo}}</td>
+        
+      </tr>
+     
+    </tbody>
+  </table>
+  <br>
+  
+  </div>
+  
+  </div>

@@ -1,0 +1,70 @@
+<br>
+
+<div class="container">
+<div class="container">
+<table>
+    <thead>
+      <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Correo</th>
+          <th>Direccción</th>
+          <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let info of dataInfo">
+        <td>{{info.id}}</td>
+        <td>{{info.name}}</td>
+        <td>{{info.username}}</td>
+        <td>{{info.email}}</td>
+        <td>{{info.address.suite}}, {{info.address.street}}, {{info.address.city}}</td>
+        <td><a (click)="datosEntrevista(info.id)"><i class="material-icons">edit</i></a></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="progress container" *ngIf="preload">
+  <div class="indeterminate"></div>
+</div>
+<button *ngIf="!preload" style="float: right;" (click)="submit()" class="btn btn-success" >Guardar Informacion </button>
+<br>
+<div class="container" style="width: 60%;">
+    <form (ngSubmit)="onSubmit(form)" #loginForm="ngForm" *ngIf="isEdit">
+        <h5>Datos de la entrevista para : <b> {{form.name}}</b></h5>
+      
+        <br>
+        <div class="input-field col s12 m12">
+            <input  [(ngModel)]="form.fecha" name="fecha" id="fecha" type="date" class="validate" required>
+            <label for="fecha">Fecha</label>
+          </div>
+          <br>
+          <div class="col s12">
+            <label>Hora</label>
+            <select class="validate browser-default" [(ngModel)]="form.hora" name="hora" id="hora" required (change)="validatedate(form)">
+              <option value="" disabled selected>Seleccione...</option>
+              <option *ngFor="let hora of dataHora; let i=index" >{{hora}}</option>
+            </select>
+           
+          </div>
+          <br>
+          <div class="col s12">
+            <label>Tipo</label>
+            <select class="validate  browser-default" required  [(ngModel)]="form.tipo" name="tipo" id="tipo">
+              <option value="" disabled selected>Seleccione...</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Telefónica">Telefónica </option>
+              <option value="Remota">Remota</option>
+            </select>
+           
+          </div>
+          <br>
+         
+          <button  style="float: right;" type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Actualziar </button>
+        </form>
+</div>
+</div>
