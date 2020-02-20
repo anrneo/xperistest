@@ -69,11 +69,11 @@ export class EntrevistaComponent implements OnInit {
       if (data.length>0 &&  data[0].form) {
         this.form =   data[0].form
       }else{
-        // this.form = {}   
+        this.form = {}   
         this.form.id = id
         this.form.name = data[0].name
 
-      }
+      } 
 
       this.isEdit = true
    
@@ -94,7 +94,7 @@ export class EntrevistaComponent implements OnInit {
     if (data.length>0) {
       for (const i in data) {
         if (form.fecha==data[i].form.fecha && form.hora==data[i].form.hora && form.id != data[i].id) { 
-          // form.hora=''
+          form.hora=''
           M.toast({html: `${data[i].name} ya tiene esta fecha y hora`, classes: 'rounded cyan'})
           return false
         }

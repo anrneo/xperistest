@@ -30,7 +30,7 @@ export class ConsultaComponent implements OnInit {
     this.apiService.getXperia(fecha)
     .subscribe(dat=>{
       this.preload = false
-      if (dat.length>0) {
+      if (dat.length>0) { 
         for (const key in dat) {
           var data = this.dataUser.filter(x=>x.id == dat[key].user_id)
           data[0].form = dat[key]
