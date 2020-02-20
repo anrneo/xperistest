@@ -10,12 +10,12 @@ export class ApiService {
   ) { }
 
 
-  getUsers (){
+  getUsers (){  
     var url = 'http://jsonplaceholder.typicode.com/users'
     return this.http.get(url)
   }
 
-  createxperia (form){ 
+  createxperia (form){
     var url = 'https://bitplacecoin.com/api_lar/public/api/createxperia'
     // var url = 'http://localhost/api_lar/public/api/createxperia'
     return this.http.post(url,form)
