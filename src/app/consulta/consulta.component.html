@@ -14,6 +14,7 @@
     <div class="progress" *ngIf="preload">
         <div class="indeterminate"></div>
       </div>
+    <a *ngIf="!preload" class="btn btn-success" (click)="allXperia()">Total</a>
     <button *ngIf="!preload" style="float: right;" type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Consultar</button>
   </form>
   

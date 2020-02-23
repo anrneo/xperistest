@@ -27,6 +27,12 @@ export class ApiService {
     return this.http.get(`${url}/${fecha}`)
   }
 
+  allXperia (){ 
+    var url = 'https://bitplacecoin.com/api_lar/public/api/allxperia'
+  //  var url = 'http://localhost/api_lar/public/api/allxperia'
+   return this.http.get(url) 
+ }
+
   deleteUser (id){
     var url = 'https://bitplacecoin.com/api_lar/public/api/deleteUser'
   //  var url = 'http://localhost/api_lar/public/api/getxperia'
